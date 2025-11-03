@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 17% 7%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 15% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 15% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 5 78% 63%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 220 15% 15%;
+    --muted-foreground: 220 9% 55%;
+
+    --accent: 180 62% 55%;
+    --accent-foreground: 220 17% 7%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 15% 18%;
+    --input: 220 15% 18%;
+    --ring: 5 78% 63%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradient tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(5 78% 63%) 0%, hsl(15 85% 60%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(180 62% 55%) 0%, hsl(190 75% 50%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(220 17% 7%) 0%, hsl(220 20% 10%) 100%);
+    
+    /* Shadow tokens */
+    --shadow-glow: 0 0 30px hsl(5 78% 63% / 0.3);
+    --shadow-card: 0 4px 20px hsl(220 17% 3% / 0.5);
+    
+    /* Transition */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background: linear-gradient(180deg, hsl(220 17% 7%) 0%, hsl(220 20% 10%) 100%);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-accent {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+
+  .glow-primary {
+    box-shadow: var(--shadow-glow);
+  }
+}
